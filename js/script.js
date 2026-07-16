@@ -356,3 +356,267 @@ document.querySelectorAll("section").forEach(section=>{
 observer.observe(section);
 
 });
+
+/*=========================================
+TESTIMONIAL SLIDER
+=========================================*/
+
+const slider=document.querySelector(".testimonial-slider");
+
+if(slider){
+
+let index=0;
+
+const cards=document.querySelectorAll(".testimonial-card");
+
+const total=cards.length;
+
+function updateSlider(){
+
+if(window.innerWidth<=992){
+
+slider.style.transform=`translateX(-${index*100}%)`;
+
+}
+
+}
+
+function nextSlide(){
+
+if(window.innerWidth>992) return;
+
+index++;
+
+if(index>=total){
+
+index=0;
+
+}
+
+updateSlider();
+
+}
+
+setInterval(nextSlide,5000);
+
+window.addEventListener("resize",()=>{
+
+index=0;
+
+updateSlider();
+
+});
+
+}
+
+/*=========================================
+TOUCH SWIPE
+=========================================*/
+
+let startX=0;
+
+let endX=0;
+
+if(slider){
+
+slider.addEventListener("touchstart",(e)=>{
+
+startX=e.changedTouches[0].screenX;
+
+});
+
+slider.addEventListener("touchend",(e)=>{
+
+endX=e.changedTouches[0].screenX;
+
+if(window.innerWidth>992) return;
+
+if(startX-endX>60){
+
+index++;
+
+if(index>=document.querySelectorAll(".testimonial-card").length){
+
+index=0;
+
+}
+
+updateSlider();
+
+}
+
+if(endX-startX>60){
+
+index--;
+
+if(index<0){
+
+index=document.querySelectorAll(".testimonial-card").length-1;
+
+}
+
+updateSlider();
+
+}
+
+});
+
+}
+
+/*=========================================
+CURRENT YEAR
+=========================================*/
+
+const year=document.getElementById("year");
+
+if(year){
+
+year.textContent=new Date().getFullYear();
+
+}
+
+/*=========================================
+CONTACT FORM
+=========================================*/
+
+const contactForm=document.querySelector(".contact-form");
+
+if(contactForm){
+
+contactForm.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+const button=contactForm.querySelector("button");
+
+const original=button.innerHTML;
+
+button.innerHTML="Sending...";
+
+button.disabled=true;
+
+setTimeout(()=>{
+
+button.innerHTML="Message Sent ✓";
+
+button.style.background="#28a745";
+
+contactForm.reset();
+
+setTimeout(()=>{
+
+button.innerHTML=original;
+
+button.disabled=false;
+
+button.style.background="";
+
+},2500);
+
+},1500);
+
+});
+
+}
+
+/*=========================================
+BUTTON RIPPLE EFFECT
+=========================================*/
+
+document.querySelectorAll(".btn-primary,.btn-secondary").forEach(button=>{
+
+button.addEventListener("click",(e)=>{
+
+const ripple=document.createElement("span");
+
+const rect=button.getBoundingClientRect();
+
+const size=Math.max(rect.width,rect.height);
+
+ripple.style.width=size+"px";
+
+ripple.style.height=size+"px";
+
+ripple.style.left=e.clientX-rect.left-size/2+"px";
+
+ripple.style.top=e.clientY-rect.top-size/2+"px";
+
+ripple.classList.add("ripple");
+
+button.appendChild(ripple);
+
+setTimeout(()=>{
+
+ripple.remove();
+
+},600);
+
+});
+
+});
+
+/*=========================================
+BACK TO TOP
+=========================================*/
+
+const backTop=document.createElement("div");
+
+backTop.className="back-to-top";
+
+backTop.innerHTML='<i class="ri-arrow-up-line"></i>';
+
+document.body.appendChild(backTop);
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>500){
+
+backTop.classList.add("show-top");
+
+}else{
+
+backTop.classList.remove("show-top");
+
+}
+
+});
+
+backTop.addEventListener("click",()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+});
+
+/*=========================================
+LAZY IMAGE FADE-IN
+=========================================*/
+
+const images=document.querySelectorAll("img");
+
+const imageObserver=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("img-loaded");
+
+imageObserver.unobserve(entry.target);
+
+}
+
+});
+
+});
+
+images.forEach(img=>{
+
+imageObserver.observe(img);
+
+});
