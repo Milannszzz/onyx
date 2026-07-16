@@ -1,492 +1,282 @@
-/* ===========================
-   GOOGLE FONTS
-=========================== */
+/*=========================================
+ONYX BELLISEMO
+Luxury Interior Design Website
+=========================================*/
 
-:root{
+/*==============================
+GOOGLE FONT RESET
+==============================*/
 
-    --primary:#0B1F3A;
-    --secondary:#D4AF37;
-    --white:#ffffff;
-    --light:#F8FAFC;
-    --text:#1E293B;
-    --transition:.35s ease;
-    --radius:12px;
+*,
+*::before,
+*::after{
 
-}
+margin:0;
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+padding:0;
+
+box-sizing:border-box;
+
 }
 
 html{
-    scroll-behavior:smooth;
+
+scroll-behavior:smooth;
+
 }
 
 body{
 
-    font-family:'Inter',sans-serif;
-    color:var(--text);
-    background:var(--light);
+font-family:'Inter',sans-serif;
+
+background:#FAF8F5;
+
+color:#2C241C;
+
+line-height:1.7;
+
+overflow-x:hidden;
 
 }
 
 img{
 
-    max-width:100%;
-    display:block;
+display:block;
+
+max-width:100%;
 
 }
 
 a{
 
-    text-decoration:none;
+text-decoration:none;
+
+color:inherit;
 
 }
 
 ul{
 
-    list-style:none;
+list-style:none;
 
 }
+
+button,
+input,
+textarea{
+
+font:inherit;
+
+}
+
+/*==============================
+ROOT
+==============================*/
+
+:root{
+
+--primary:#2C241C;
+
+--secondary:#B38B59;
+
+--secondary-light:#D9BE97;
+
+--background:#FAF8F5;
+
+--white:#FFFFFF;
+
+--text:#4B433C;
+
+--border:#ECE5DE;
+
+--shadow:0 20px 50px rgba(0,0,0,.08);
+
+--radius:28px;
+
+--transition:.35s ease;
+
+--container:1200px;
+
+}
+
+/*==============================
+GLOBAL
+==============================*/
 
 .container{
 
-    width:min(1200px,90%);
-    margin:auto;
+width:min(92%,var(--container));
+
+margin:auto;
 
 }
 
-/* ===========================
-   NAVBAR
-=========================== */
+.section{
 
-header{
-
-    position:absolute;
-    width:100%;
-    top:0;
-    left:0;
-    z-index:999;
+padding:120px 0;
 
 }
 
-.navbar{
+.section-heading{
 
-    width:90%;
-    max-width:1300px;
+text-align:center;
 
-    margin:auto;
+max-width:760px;
 
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:25px 0;
+margin:0 auto 70px;
 
 }
 
-.logo{
+.section-heading span{
 
-    color:white;
+display:inline-block;
 
-    font-family:'Poppins',sans-serif;
+letter-spacing:3px;
 
-    font-size:1.7rem;
+font-size:.82rem;
 
-    font-weight:800;
+font-weight:700;
 
-    letter-spacing:1px;
+color:var(--secondary);
 
-}
+margin-bottom:18px;
 
-.nav-links{
-
-    display:flex;
-
-    gap:40px;
+text-transform:uppercase;
 
 }
 
-.nav-links a{
+.section-heading h2{
 
-    color:white;
+font-family:'Cormorant Garamond',serif;
 
-    font-weight:500;
+font-size:clamp(2.5rem,5vw,4.5rem);
 
-    transition:.3s;
+font-weight:700;
 
-}
+line-height:1.1;
 
-.nav-links a:hover{
-
-    color:var(--secondary);
+margin-bottom:20px;
 
 }
 
-.quote-btn{
+.section-heading p{
 
-    background:var(--secondary);
+font-size:1.05rem;
 
-    color:#111;
-
-    padding:14px 28px;
-
-    border-radius:999px;
-
-    font-weight:700;
-
-    transition:var(--transition);
+color:var(--text);
 
 }
 
-.quote-btn:hover{
+/*==============================
+BUTTONS
+==============================*/
 
-    transform:translateY(-3px);
+.btn-primary{
 
-}
+display:inline-flex;
 
-/* ===========================
-   HERO
-=========================== */
+align-items:center;
 
-.hero{
+justify-content:center;
 
-    position:relative;
+padding:16px 34px;
 
-    height:100vh;
+border-radius:999px;
 
-    background-image:url("../images/hero.jpg");
+background:var(--primary);
 
-    background-size:cover;
+color:var(--white);
 
-    background-position:center;
+font-weight:600;
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
+transition:var(--transition);
 
 }
 
-.overlay{
+.btn-primary:hover{
 
-    position:absolute;
+background:var(--secondary);
 
-    inset:0;
-
-    background:rgba(8,18,37,.68);
+transform:translateY(-3px);
 
 }
 
-.hero-content{
+.btn-secondary{
 
-    position:relative;
+display:inline-flex;
 
-    z-index:5;
+align-items:center;
 
-    text-align:center;
+justify-content:center;
 
-    width:min(850px,90%);
+padding:16px 34px;
 
-}
+border:2px solid var(--primary);
 
-.hero-tag{
+border-radius:999px;
 
-    display:inline-block;
+font-weight:600;
 
-    color:var(--secondary);
-
-    letter-spacing:3px;
-
-    font-weight:600;
-
-    margin-bottom:25px;
-
-    font-size:.9rem;
+transition:var(--transition);
 
 }
 
-.hero h1{
+.btn-secondary:hover{
 
-    font-family:'Poppins',sans-serif;
+background:var(--primary);
 
-    font-size:4.5rem;
-
-    line-height:1.1;
-
-    color:white;
-
-    margin-bottom:25px;
+color:var(--white);
 
 }
 
-.hero p{
+/*==============================
+PRELOADER
+==============================*/
 
-    color:#d6d6d6;
+#preloader{
 
-    font-size:1.15rem;
+position:fixed;
 
-    line-height:1.8;
+inset:0;
 
-    margin-bottom:45px;
+background:var(--background);
 
-}
+display:flex;
 
-.hero-buttons{
+justify-content:center;
 
-    display:flex;
+align-items:center;
 
-    justify-content:center;
-
-    gap:20px;
-
-    flex-wrap:wrap;
+z-index:99999;
 
 }
 
-.primary-btn{
+.loader{
 
-    background:var(--secondary);
-
-    color:#111;
-
-    padding:18px 36px;
-
-    border-radius:999px;
-
-    font-weight:700;
-
-    transition:.3s;
+text-align:center;
 
 }
 
-.primary-btn:hover{
+.loader h2{
 
-    transform:translateY(-4px);
+font-family:'Cormorant Garamond',serif;
 
-}
+font-size:3.5rem;
 
-.secondary-btn{
-
-    border:2px solid white;
-
-    color:white;
-
-    padding:18px 36px;
-
-    border-radius:999px;
-
-    font-weight:700;
-
-    transition:.3s;
+letter-spacing:6px;
 
 }
 
-.secondary-btn:hover{
+.loader span{
 
-    background:white;
+display:block;
 
-    color:#111;
+margin-top:10px;
 
-}
+font-size:.85rem;
 
-/* ===========================
-   RESPONSIVE
-=========================== */
+letter-spacing:5px;
 
-@media(max-width:992px){
-
-.hero h1{
-
-font-size:3rem;
-
-}
-
-.nav-links{
-
-display:none;
-
-}
-
-.quote-btn{
-
-display:none;
-
-}
-
-}
-
-@media(max-width:600px){
-
-.hero h1{
-
-font-size:2.3rem;
-
-}
-
-.hero p{
-
-font-size:1rem;
-
-}
-
-.hero-tag{
-
-letter-spacing:1.5px;
-
-font-size:.75rem;
-
-}
-
-}
-
-/* ===========================
-   STICKY NAVBAR
-=========================== */
-
-header{
-
-    transition:.35s ease;
-
-}
-
-header.sticky{
-
-    position:fixed;
-
-    background:rgba(11,31,58,.85);
-
-    backdrop-filter:blur(18px);
-
-    box-shadow:0 10px 30px rgba(0,0,0,.18);
-
-}
-
-/* ===========================
-   HERO ANIMATION
-=========================== */
-
-.hero-content{
-
-    opacity:0;
-
-    transform:translateY(40px);
-
-    transition:1s ease;
-
-}
-
-.hero-content.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-/* ===========================
-   HERO IMAGE SLOW ZOOM
-=========================== */
-
-.hero{
-
-    animation:heroZoom 18s ease-in-out infinite alternate;
-
-}
-
-@keyframes heroZoom{
-
-    from{
-
-        background-size:100%;
-
-    }
-
-    to{
-
-        background-size:108%;
-
-    }
-
-}
-
-/* ===========================
-   BUTTON EFFECTS
-=========================== */
-
-.primary-btn,
-.secondary-btn{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.primary-btn::before,
-.secondary-btn::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:0;
-
-    height:100%;
-
-    top:0;
-    left:0;
-
-    background:rgba(255,255,255,.18);
-
-    transition:.5s;
-
-}
-
-.primary-btn:hover::before,
-.secondary-btn:hover::before{
-
-    width:100%;
-
-}
-
-/* ===========================
-   NAV LINK UNDERLINE
-=========================== */
-
-.nav-links a{
-
-    position:relative;
-
-}
-
-.nav-links a::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:-6px;
-
-    width:0;
-
-    height:2px;
-
-    background:var(--secondary);
-
-    transition:.3s;
-
-}
-
-.nav-links a:hover::after{
-
-    width:100%;
+color:var(--secondary);
 
 }
