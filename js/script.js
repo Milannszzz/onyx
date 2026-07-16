@@ -7,7 +7,7 @@ Main JavaScript
 PRELOADER
 ==============================*/
 
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
 const preloader = document.getElementById("preloader");
 
